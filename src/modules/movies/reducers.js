@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import { routerReducer } from "react-router-redux";
 import * as types from "./types";
 import { createAsyncReducer } from "../../utils/redux.helpers";
 
@@ -21,5 +22,6 @@ export default combineReducers({
   movieSearch: createAsyncReducer(types.SEARCH_MOVIE, {
     [`${types.SEARCH_MOVIE}_SUCCESS`]: moviesSuccessReducer
   }),
-  movieDetails: createAsyncReducer(types.FETCH_DETAILS)
+  movieDetails: createAsyncReducer(types.FETCH_DETAILS),
+  routing: routerReducer
 });
