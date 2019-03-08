@@ -3,11 +3,11 @@ import ReactDOM from "react-dom";
 import { Provider as ReduxProvider } from "react-redux";
 import { Router, Route, browserHistory } from "react-router";
 import { syncHistoryWithStore } from "react-router-redux";
-
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import store from "./store";
+import MovieDetails from "./modules/movies/components/MovieDetails";
 
 const history = syncHistoryWithStore(browserHistory, store);
 
@@ -15,6 +15,7 @@ ReactDOM.render(
   <ReduxProvider store={store}>
     <Router history={history}>
       <Route path="/" component={App} />
+      <Route path="/movie/:id" component={MovieDetails} />
     </Router>
     ,
   </ReduxProvider>,
