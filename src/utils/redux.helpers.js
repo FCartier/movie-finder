@@ -23,9 +23,10 @@ export const createAsyncActionCreator = (
     return asyncRequestFn(requestParams).then(response => {
       response
         .json()
-        .then(json =>
-          dispatch(createAction(`${actionType}_SUCCESS`, { response: json }))
-        )
+        .then(json => {
+          console.log(json);
+          dispatch(createAction(`${actionType}_SUCCESS`, { response: json }));
+        })
         .catch(error =>
           dispatch(createAction(`${actionType}_ERROR`, { error }))
         );

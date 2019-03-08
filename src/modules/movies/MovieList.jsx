@@ -7,7 +7,7 @@ const styles = {
     marginBottom: 20
   }
 };
-const MovieListComponent = ({ movies, isLoading }) => {
+const MovieListComponent = ({ movies }) => {
   const movieColumns = movies
     ? movies.map(movie => (
         <Col

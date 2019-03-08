@@ -15,9 +15,7 @@ export const getPopularMovies = async ({ page }) => {
   const fullUrl = createMovieDbUrl("/movie/popular", {
     page
   });
-  const result = fetch(fullUrl);
-  console.log(result);
-  return result;
+  return fetch(fullUrl);
 };
 
 export const searchMovies = async ({ page, query }) => {

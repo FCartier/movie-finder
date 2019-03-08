@@ -1,14 +1,20 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Container, Row, Col } from "react-bootstrap";
-
-import * as movieActions from "./operations";
+import { Container, Row } from "react-bootstrap";
 import * as movieHelpers from "./helpers";
+import * as movieActions from "./operations";
 import MovieList from "./MovieList";
+import Search from "./Search";
+import chooseMovieList from "./selectors";
 
 class MovieBrowser extends React.Component {
   componentDidMount() {
-    this.props.fetchMovies(1);
+    this.props.fetchMovies();
+  }
+
+  shouldComponentUpdate(nextProps) {
+    console.log(nextProps.popularMovies);
+    return this.props.popularMovies !== nextProps.popularMovies;
   }
 
   render() {
@@ -19,7 +25,7 @@ class MovieBrowser extends React.Component {
       <div>
         <Container>
           <Row>
-            <p>Search will go here</p>
+            <Search />
           </Row>
           <Row>
             <MovieList movies={movies} />
@@ -33,7 +39,8 @@ class MovieBrowser extends React.Component {
 export default connect(
   // Map nodes in our state to a properties of our component
   state => ({
-    popularMovies: state.popularMovies
+    popularMovies:
+      state.movieSearch.length > 0 ? state.movieSearch : state.popularMovies
   }),
   // Map action creators to properties of our component
   { ...movieActions }
