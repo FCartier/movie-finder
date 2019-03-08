@@ -3,13 +3,13 @@ import * as types from "./types";
 import { createAsyncReducer } from "../../utils/redux.helpers";
 
 const moviesSuccessReducer = (state, action) => {
-  const existingMovies = state.response ? state.response.results : [];
+  //   const existingMovies = state.response ? state.response.results : [];
   return {
     ...state,
     isLoading: false,
     response: {
       ...action.response,
-      results: [...existingMovies, ...action.response.results]
+      results: [...action.response.results]
     }
   };
 };

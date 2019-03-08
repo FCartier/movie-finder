@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import * as movieActions from "./operations";
+import * as movieActions from "../operations";
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -28,10 +28,6 @@ class SearchBar extends React.Component {
 }
 
 export default connect(
-  // Map nodes in our state to a properties of our component
-  state => ({
-    movieSearch: state.movieSearch
-  }),
-  // Map action creators to properties of our component
+  null,
   { ...movieActions }
 )(SearchBar);
