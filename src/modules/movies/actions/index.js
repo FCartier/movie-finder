@@ -1,6 +1,6 @@
-import * as types from "./types";
-import * as movieService from "../../utils/apiService";
-import { createAsyncActionCreator } from "../../utils/redux.helpers";
+import * as types from "../common/types";
+import * as movieService from "../../../utils/apiService";
+import { createAsyncActionCreator } from "../../../utils/redux.helpers";
 
 export const fetchMovies = page =>
   createAsyncActionCreator(types.FETCH_LIST, movieService.getPopularMovies, {

@@ -1,13 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Container, Row } from "react-bootstrap";
-import * as movieHelpers from "./helpers";
-import * as movieActions from "./operations";
-import MovieList from "./components/MovieList";
-import Search from "./components/Search";
-import chooseMovieList from "./selectors";
+import * as movieHelpers from "../../common/helpers";
+import * as movieActions from "../../actions";
+import MovieList from "./MovieList";
+import chooseMovieList from "../../selectors";
 
-class MovieBrowser extends React.Component {
+class MovieListContainer extends React.Component {
   componentDidMount() {
     this.props.fetchMovies();
   }
@@ -28,9 +27,6 @@ class MovieBrowser extends React.Component {
       <div>
         <Container>
           <Row>
-            <Search />
-          </Row>
-          <Row>
             <MovieList movies={movies} />
           </Row>
         </Container>
@@ -44,4 +40,4 @@ export default connect(
     popularMovies: chooseMovieList(state)
   }),
   { ...movieActions }
-)(MovieBrowser);
+)(MovieListContainer);

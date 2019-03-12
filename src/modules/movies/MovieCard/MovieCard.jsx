@@ -1,26 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
 import { Card, CardTitle, CardMedia } from "material-ui";
-
-const styles = {
-  cardTitle: {
-    whiteSpace: "nowrap",
-    textOverflow: "ellipsis",
-    overflow: "hidden"
-  },
-  cardMedia: {
-    maxHeight: 394,
-    overflow: "hidden"
-  },
-  card: {
-    cursor: "pointer",
-    height: 400,
-    overflow: "hidden"
-  },
-  bgImage: {
-    width: "100%"
-  }
-};
+import styles from "./MovieCard.styled";
 
 class MovieCard extends React.Component {
   render() {

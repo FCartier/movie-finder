@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import { routerReducer } from "react-router-redux";
-import * as types from "./types";
-import { createAsyncReducer } from "../../utils/redux.helpers";
+import * as types from "../common/types";
+import { createAsyncReducer } from "../../../utils/redux.helpers";
 
 const moviesSuccessReducer = (state, action) => {
   return {

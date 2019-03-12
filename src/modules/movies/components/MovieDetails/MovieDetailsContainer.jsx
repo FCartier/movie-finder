@@ -1,10 +1,10 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import * as movieActions from "../operations";
+import * as movieActions from "../../actions";
 
-import MovieDetailsPage from "../components/MovieDetailsPage";
+import MovieDetails from "./MovieDetails";
 
-class MovieDetails extends Component {
+class MovieDetailsContainer extends Component {
   componentDidMount() {
     const movieId = this.props.routeParams.id;
     this.props.getMovieDetails(movieId);
@@ -20,7 +20,7 @@ class MovieDetails extends Component {
   }
 
   render() {
-    return <MovieDetailsPage movie={this.props.movie} />;
+    return <MovieDetails movie={this.props.movie} />;
   }
 }
 
@@ -29,4 +29,4 @@ export default connect(
     movie: state.movieDetails
   }),
   { ...movieActions }
-)(MovieDetails);
+)(MovieDetailsContainer);

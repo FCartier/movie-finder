@@ -1,13 +1,16 @@
 import React, { Component } from "react";
-import "./App.css";
-import { MovieBrowser } from "./modules/movies";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import { SearchAppBarContainer } from "./modules/movies/components";
+import "./App.css";
 
 class App extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <MovieBrowser />
+        <div>
+          <SearchAppBarContainer />
+        </div>
+        <div>{this.props.children}</div>
       </MuiThemeProvider>
     );
   }

@@ -1,13 +1,9 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
-import MovieCard from "./MovieCard";
+import MovieCard from "../../MovieCard";
+import styles from "./MovieList.styled";
 
-const styles = {
-  movieColumn: {
-    marginBottom: 20
-  }
-};
-const MovieListComponent = ({ movies }) => {
+const MovieList = ({ movies }) => {
   const movieColumns = movies
     ? movies.map(movie => (
         <Col
@@ -26,4 +22,4 @@ const MovieListComponent = ({ movies }) => {
   return <Row>{movieColumns}</Row>;
 };
 
-export default MovieListComponent;
+export default MovieList;
